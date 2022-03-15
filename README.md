@@ -1,4 +1,5 @@
-* Hello World
+** Hello World **
+
 Hello World is a web application that provides the functionality to signup, signin, forgot password and maintains the users search hostory. Twitch API has been integrated inside the application where user can search the display names of channels
 
 Getting Started
