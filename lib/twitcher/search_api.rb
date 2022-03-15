@@ -1,7 +1,6 @@
 module Twitcher
   class SearchApi < Base
-
-    def initialize(search_endpoint='helix/search/channels')
+    def initialize(search_endpoint = 'helix/search/channels')
       @search_url = set_url(search_endpoint, ENV['API_BASE_URL'])
     end
 
@@ -15,9 +14,8 @@ module Twitcher
     def headers
       {
         'Client-id': ENV['TWITCHER_CLIENT_ID'],
-        'Authorization': "Bearer gd7ks40ra2qkdf96eppvirlkri7aje"
+        'Authorization': 'Bearer gd7ks40ra2qkdf96eppvirlkri7aje'
       }
     end
-
   end
 end

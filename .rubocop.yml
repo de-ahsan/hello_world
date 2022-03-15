@@ -1,0 +1,54 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+# The AllCops:Exclude list will contain all the default patterns plus the [db/schema.rb, config/**/*, bin/*]
+# entry that was added locally.
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - config/**/*
+    - bin/*
+  NewCops: enable
+
+# This BlockLength cop checks if the length of a block exceeds some maximum value.
+# Comment lines can optionally be ignored. The maximum allowed length is configurable.
+# The cop can be configured to ignore blocks passed to certain methods.
+Metrics/BlockLength:
+  Exclude:
+    - Rakefile
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+# The ABC size is based on assignments, branches (method calls), and conditions.
+# This cop checks that the ABC size of methods is not higher than the configured maximum.
+Metrics/AbcSize:
+  Max: 20
+
+# This cop checks for missing top-level documentation of classes and modules.
+# Classes with no body are exempt from the check and so are namespace modules -
+# modules that have nothing in their bodies except classes, other modules, constant definitions or
+# constant visibility declarations.
+Style/Documentation:
+  # Note that these paths are excluded as their intent is typically obvious.
+  # Documentation like "Controller for X model." is not very helpful. If any of
+  # these do anything special then please document them!
+  Exclude:
+    - 'app/controllers/**/*.rb'
+    - 'app/serializers/**/*.rb'
+    - 'db/**/*.rb'
+
+# It checks for nested example groups. i.e nested contexts in rspecs
+# This cop is configurable using the `Max` option.
+RSpec/NestedGroups:
+  Max: 7
+
+# MultipleMemoizedHelpers It checks if the example groups contain too many `let` and `subject` calls.
+# Maximum 7 memoized helpers are allowed
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
+
+# MultipleExpectations checks if examples contain too many `expect` calls. We just disabled it.
+# We can configure it by setting the max.
+RSpec/MultipleExpectations:
+  Enabled: false

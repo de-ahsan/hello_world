@@ -5,5 +5,4 @@ class Api::V1::ConfirmationsController < ::Devise::ConfirmationsController
     super
     UserMailer.registration_confirmation(@user).deliver_later
   end
-
 end

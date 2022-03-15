@@ -1,5 +1,5 @@
 class Api::V1::RegistrationsController < ::Devise::RegistrationsController
-  before_action :authenticate_user!, only: [ :update ]
+  before_action :authenticate_user!, only: [:update]
   respond_to :json
 
   def respond_with(resource, _opts = {})
@@ -15,5 +15,4 @@ class Api::V1::RegistrationsController < ::Devise::RegistrationsController
   def sign_up_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
-
 end

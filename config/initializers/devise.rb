@@ -310,8 +310,9 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.jwt do |jwt|
     if ENV['jwt_secret'].blank?
-      raise "Please define `jwt_secret` in application.yml. Tip: use `rails secret` to generate one"
+      raise 'Please define `jwt_secret` in application.yml. Tip: use `rails secret` to generate one'
     end
+
     jwt.secret = ENV['jwt_secret']
   end
 end

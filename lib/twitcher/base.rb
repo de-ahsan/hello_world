@@ -15,15 +15,13 @@ module Twitcher
     def generate_token
       self.token_url = set_url('oauth2/token')
       request = HTTParty.post(@token_url, headers: { 'Content-Type': 'application/json' },
-                              body: TOKEN_QUERY_PARAMS.to_json)
+                                          body: TOKEN_QUERY_PARAMS.to_json)
       request.parsed_response['access_token']
     end
 
-    def set_url(endpoint='', base_url=ENV['API_URL'])
+    def set_url(endpoint = '', base_url = ENV['API_URL'])
       base_url + endpoint
     end
-
-    private
 
     # def default_headers
     #   { 'Content-Type': 'application/json' }

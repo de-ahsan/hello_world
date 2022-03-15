@@ -8,5 +8,4 @@ class Api::V1::SessionsController < Devise::SessionsController
       render json: resource
     end
   end
-
 end

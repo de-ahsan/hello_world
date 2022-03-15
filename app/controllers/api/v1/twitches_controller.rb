@@ -1,5 +1,4 @@
 class Api::V1::TwitchesController < Api::V1::BaseController
-
   after_action :log_search_data, only: :search
 
   def search
@@ -7,7 +6,7 @@ class Api::V1::TwitchesController < Api::V1::BaseController
     data_element = query_params.to_hash.has_key?('query') ? query_params.to_hash['query'] : get_random_search
     data = twitch.search_query(data_element)
 
-    render json: data.parsed_response['data'].map{|row| row['game_name']}, status: 200
+    render json: data.parsed_response['data'].map { |row| row['game_name'] }, status: 200
   end
 
   private
@@ -21,6 +20,6 @@ class Api::V1::TwitchesController < Api::V1::BaseController
   end
 
   def get_random_search
-     current_user.search_logs.pluck(:query_data).sample
+    current_user.search_logs.pluck(:query_data).sample
   end
 end

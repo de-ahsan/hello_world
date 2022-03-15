@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include Api::V1::RenderHelper
   include ExceptionHandler
@@ -14,7 +15,8 @@ class ApplicationController < ActionController::Base
       user.permit(
         :email,
         :password,
-        :registration_token)
+        :registration_token
+      )
     end
 
     devise_parameter_sanitizer.permit(:sign_up) do |user|
@@ -23,7 +25,8 @@ class ApplicationController < ActionController::Base
         :last_name,
         :email,
         :password,
-        :password_confirmation)
+        :password_confirmation
+      )
     end
   end
 end
